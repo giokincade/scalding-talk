@@ -138,7 +138,27 @@ res2: java.lang.String = blah+and+blah!
 </code></pre>
         </section>
 
+        <section>
+          <h1>Implicit Parameters</h1>
+        </section>
 
+        <section>
+<pre><code data-trim>
+def emailSignature(name:String)(implicit organization:String) = 
+  "Sincerely Yours,\n" + name + "\n" + organization
+
+scala> implicit val organization = "Etsy, Inc."
+organization: java.lang.String = Etsy, Inc.
+
+scala> emailSignature("Giovanni Fernandez-Kincade")
+res3: java.lang.String =
+Sincerely Yours,
+Giovanni Fernandez-Kincade
+Etsy, Inc.
+</code></pre>
+        </section>
+
+ 
 		</div>
 
 		<script src="lib/js/head.min.js"></script>
