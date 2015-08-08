@@ -158,7 +158,70 @@ Etsy, Inc.
 </code></pre>
         </section>
 
- 
+         <section>
+           <h1>Word Count</h1>
+        </section>
+
+        <section>
+<pre><code class="scala" data-trim>
+val words = List("one", "two", "three")
+
+words
+  .map {
+    word =>
+      Map(word.substring(0,1) -> 1)
+  }
+  .reduce { 
+    (a, b) =>
+      a ++ b.map { 
+        mapTuple => 
+          val (key, count) = mapTuple
+          (key, a.getOrElse(key, 0) + count)
+      }
+  }
+</code></pre>
+        </section>
+
+        <section>
+<pre><code class="scala" data-trim>
+val words = List("one", "two", "three")
+
+words
+  .map {
+    word =>
+      Map(word.substring(0,1) -> 1)
+  }
+</code></pre>
+
+<pre><code class="scala" data-trim>
+List(Map(o -> 1), Map(t -> 1), Map(t -> 1))
+</code></pre>
+        </section>
+
+        <section>
+
+<pre><code class="scala" data-trim>
+List(Map(o -> 1), Map(t -> 1), Map(t -> 1))
+</code></pre>
+
+<pre><code class="scala" data-trim>
+  .reduce { 
+    (a, b) =>
+      a ++ b.map { 
+        mapTuple => 
+          val (key, count) = mapTuple
+          (key, a.getOrElse(key, 0) + count)
+      }
+  }
+</code></pre>
+
+<pre><code class="scala" data-trim>
+Map(o -> 1, t -> 2)
+</code></pre>
+        </section>
+
+
+
 		</div>
 
 		<script src="lib/js/head.min.js"></script>
