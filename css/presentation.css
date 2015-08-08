@@ -1,0 +1,101 @@
+/** Colors **/
+/** Styles **/
+.emphasis {
+  color: #F45800; }
+
+#henry-results .emphasis {
+  color: #F45800; }
+
+.reveal .slides section.figures .fragment {
+  visibility: visible; }
+
+.circle {
+  border-radius: 50%; }
+
+#henry img {
+  display: inline-block; }
+
+#henry-results {
+  position: relative; }
+
+#fail {
+  width: 100%;
+  position: absolute;
+  top: 120px;
+  font-size: 4em; }
+
+#process-legend {
+  position: absolute;
+  top: 30%;
+  width: 100%; }
+
+#process .one {
+  background: #E1E3DF; }
+#process .two {
+  background: #F0FBFD; }
+#process .three {
+  background: #CCE9F0; }
+#process .four {
+  background: #34A8C4; }
+#process .five {
+  background: #F45800; }
+#process ul {
+  margin-top: 2em;
+  list-style-type: none; }
+  #process ul li {
+    height: 1em;
+    line-height: 1em;
+    vertical-align: middle;
+    margin-bottom: 0.5em; }
+  #process ul li .swatch {
+    height: 1em;
+    width: 1em;
+    display: inline-block;
+    margin-right: 0.25em; }
+  #process ul li .text {
+    position: relative;
+    top: -4px; }
+#process .group {
+  font-size: 0;
+  height: 125px;
+  width: 100%;
+  position: relative;
+  margin-bottom: 50px; }
+  #process .group .bar {
+    width: 25%;
+    height: 100%;
+    margin: auto;
+    display: inline-block; }
+    #process .group .bar.five {
+      width: 1%;
+      position: absolute; }
+
+.slides section.bar-graph {
+  height: 1000px;
+  width: 1000px; }
+  .slides section.bar-graph div:nth-child(even) {
+    padding-left: 1em; }
+  .slides section.bar-graph .color-one {
+    background: #34A8C4; }
+  .slides section.bar-graph .color-two {
+    background: #F45800; }
+  .slides section.bar-graph .bar-group {
+    height: 100%;
+    width: 25%;
+    margin: auto;
+    display: inline-block; }
+  .slides section.bar-graph .bar {
+    height: 50%; }
+.slides section img {
+  border: none;
+  background: none;
+  box-shadow: none; }
+.slides section.gigi img {
+  border-radius: 50%; }
+.slides section.impact h1 {
+  margin: 0;
+  font-size: 5em;
+  color: white; }
+.slides section.impact h2 {
+  color: white;
+  font-size: 3em; }
