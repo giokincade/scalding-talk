@@ -285,6 +285,34 @@ res5: java.lang.Comparable[_] = gigi
 </code></pre>
       </section>
 
+      <section>
+         <h1>First Character Count 2.0</h1>
+      </section>
+
+      <section>
+         <img src="images/cascading/cascading.png">
+      </section>
+
+       <section>
+<pre><code class="scala" data-trim>
+def cascadingTuple[T](fieldName:String, entry:T): TupleEntry = 
+  new TupleEntry(
+    new Fields(fieldName),
+    new Tuple(entry.asInstanceOf[Object])
+  )
+</code></pre>
+      </section>
+
+       <section>
+<pre><code class="scala" data-trim>
+val words = List(
+  cascadingTuple("word", "one"),
+  cascadingTuple("word", "two"),
+  cascadingTuple("word", "three")
+)
+</code></pre>
+      </section>
+
 
 		</div>
 
