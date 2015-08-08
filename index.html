@@ -232,6 +232,19 @@ Map(o -> 1, t -> 2)
           <img src="images/hadoop/mapper.png">
         </section>
 
+       <section>
+          <img src="images/hadoop/reducer.png">
+        </section>
+
+<section>
+<h2>Sort Of</h2>
+<pre><code class="java" data-trim>
+map(K1 key, V1 value, OutputCollector&lt;K2,V2&gt; output)
+
+reduce(K2 key, Iterator&lt;V2&gt; values, OutputCollector&lt;K3,V3&gt; output)
+</code></pre>
+</section>
+
 
 		</div>
 
