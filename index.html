@@ -246,6 +246,45 @@ void reduce(K2 key, Iterator&lt;V2&gt; values,
 </code></pre>
 </section>
 
+      <section>
+         <h1>Cascading</h1>
+      </section>
+
+      <section>
+<pre><code class="java" data-trim>
+cascading.tuple.Tuple
+</code></pre>
+      </section>
+
+       <section>
+<pre><code class="scala" data-trim>
+val fields = new Fields(
+  "user_id", 
+  "user_name", 
+  "location"
+)
+
+val one = new TupleEntry(
+  fields,
+  new Tuple(
+    1.asInstanceOf[Object], 
+    "gigi".asInstanceOf[Object], 
+    "miami".asInstanceOf[Object]
+  )
+)
+</code></pre>
+      </section>
+    
+      <section>
+<pre><code class="scala" data-trim>
+> one.get("user_id")
+res4: java.lang.Comparable[_] = 1
+
+> one.get("user_name")
+res5: java.lang.Comparable[_] = gigi
+</code></pre>
+      </section>
+
 
 		</div>
 
