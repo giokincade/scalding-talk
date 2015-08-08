@@ -313,6 +313,49 @@ val words = List(
 </code></pre>
       </section>
 
+       <section>
+<pre><code class="scala" data-trim>
+words
+  .map {
+    tuple => 
+      cascadingTuple(
+        "map",
+        Map(tuple.getString("word").substring(0,1) -> 1)
+      )
+  }
+</code></pre>
+      </section>
+
+       <section>
+<pre><code class="scala" data-trim>
+.reduce {
+  (tupleA, tupleB) =>
+    val (a,b) = (
+      tupleA.getObject("map").asInstanceOf[Map[String,Int]],
+      tupleB.getObject("map").asInstanceOf[Map[String,Int]],
+    )
+
+    val result = a ++ b.map { 
+      mapTuple =>
+        val (key, count) = mapTuple
+        (key, a.getOrElse(key, 0) + count)
+    }
+
+    cascadingTuple("map", result)
+}
+</code></pre>
+      </section>
+
+       <section>
+<pre><code class="scala" data-trim>
+> run
+fields: ['map'] tuple: ['Map(o -> 1, t -> 2)']
+</code></pre>
+      </section>
+
+
+
+
 
 		</div>
 
