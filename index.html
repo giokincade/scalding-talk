@@ -100,7 +100,10 @@
         </section>
 
         <section>
-          <h2>Implicit Conversions</h2>
+          <h1>Implicit Conversions</h1>
+        </section>
+
+        <section>
 <pre><code data-trim>
 scala> "blah and blah"!
 res4: java.lang.String = blah and blah!
@@ -109,6 +112,32 @@ scala> "blah and blah".urlencode()!
 error: value urlencode is not a member of java.lang.String!
 </code></pre>
         </section>
+
+        <section>
+<pre><code data-trim>
+class WrappedString(val x:String) {
+  def urlencode() = URLEncoder.encode(x)
+}
+</code></pre>
+        </section>
+
+        <section>
+<pre><code data-trim>
+implicit def stringToWrappedString(x:String): WrappedString =
+  new WrappedString(x)
+</code></pre>
+        </section>
+
+        <section>
+<pre><code data-trim>
+scala> "blah and blah".urlencode()
+res2: java.lang.String = blah+and+blah!
+
+scala> stringToWrappedString(“blah and blah”).urlencode()
+res2: java.lang.String = blah+and+blah!
+</code></pre>
+        </section>
+
 
 		</div>
 
