@@ -354,10 +354,40 @@ fields: ['map'] tuple: ['Map(o -> 1, t -> 2)']
       </section>
 
 
+        <section>
+            <h1>First Character Count 1.2</h1>
+        </section>
+
+        <section>
+<pre><code class="scala" data-trim>
+List("one", "two", "three")
+  .groupBy(_.substring(0,1))
+</code></pre>
+
+<pre><code class="scala" data-trim>
+res1: Map(o -> List(one), t -> List(two, three))
+</code></pre>
+        </section>
+
+        <section>
+<pre><code class="scala" data-trim>
+List("one", "two", "three")
+  .groupBy(_.substring(0,1))
+  .map {
+    (tuple) =>
+      val (key, value) = tuple 
+      (key, value.size)
+  }
+</code></pre>
+<pre><code class="scala" data-trim>
+res1: Map(o -> 1, t -> 2)
+</code></pre>
+
+        </section>
 
 
 
-		</div>
+    </div>
 
 		<script src="lib/js/head.min.js"></script>
 		<script src="js/reveal.js"></script>
