@@ -1,165 +1,27 @@
 /** Colors **/
-$first-bar-color: #34A8C4;
-$second-bar-color: #F45800;
-
-$text-emphasis: #F45800;
-
-$process_design: #E1E3DF;
-$process_dev: #F0FBFD;
-$process_admin: #CCE9F0;
-$process_test: #34A8C4;
-
-/** Styles **/
-.emphasis {
-    color: $text-emphasis;
-}
-
-#henry-results .emphasis {
-    color: $text-emphasis;
-}
-
-.reveal .slides section.figures .fragment {
-    visibility: visible;
-}
-
-.circle {
-    border-radius: 50%;
-}
-
-
-#henry img {
-    display: inline-block;
-}
-
-#henry-results {
-    position: relative;
-}
-
-#fail {
-    width: 100%;
-    position: absolute;
-    top: 120px;
-    font-size: 4em;
-}
-
-#process-legend {
-    position: absolute;
-    top: 30%;
-    width: 100%;
-}
-
-#process {
-    .one {
-        background:$process_design
-    }
-    .two {
-        background:$process_dev;
-    }
-    .three {
-        background:$process_admin;
-    }
-    .four {
-        background:$process_test;
-    }
-    .five{
-        background:$text-emphasis;
-    }
-
-
-    ul {
-        li {
-            height: 1em;
-            line-height: 1em;
-            vertical-align: middle;
-            margin-bottom: 0.5em;
-        }
-        li .swatch {
-            height: 1em;
-            width: 1em;
-            display: inline-block;
-            margin-right: 0.25em;
-        }
-        li .text {
-            position: relative;
-            top: -4px;
-        }
-        margin-top: 2em;
-        list-style-type: none;
-    }
-    .group {
-        font-size: 0;
-        height: 125px;
-        width: 100%;
-        position: relative;
-        margin-bottom: 50px;
-
-        .bar {
-            width: 25%;
-            height: 100%;
-            margin: auto;
-            display: inline-block;
-            &.five {
-                width: 1%;
-                position:absolute;
-            }
-
-        }
-
-    }
-
-}
-
-
+$orange: #F56400;
 
 .slides {
     section {
-        &.bar-graph {
-            height: 1000px;
-            width: 1000px;
-
-            div:nth-child(even) {
-                padding-left: 1em;
-            }
-
-            .color-one {
-                background: $first-bar-color;
-            }
-            .color-two{
-                background: $second-bar-color;
-            }
-
-            .bar-group {
-                height: 100%;
-                width: 25%;
-                margin: auto;
-                display: inline-block;
-            }
-            .bar {
-                height: 50%;
-            }
-        }
         img {
             border: none;
             background: none;
             box-shadow: none;
         }
-
-        &.gigi img {
-            border-radius: 50%;
-        }
-
-        &.impact {
-            h1 {
-                margin: 0;
-                font-size: 5em;
-                color: white;
-            }
-            h2 {
-                color: white;
-                font-size: 3em;
-            }
-        }
     }
 }
 
+.center-parent {
+  position: relative;
+}
+
+
+#que {
+  position: absolute;
+  width: 100%;
+  top: 50%;
+  transform: translate(0, -50%);
+  color: $orange;
+  font-size: 5em;
+}
 
