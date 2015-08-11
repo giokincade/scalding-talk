@@ -441,9 +441,48 @@ tuple.getString("line")
 <pre><code class="scala" data-trim>
 tuple.setString("first_character”, line.substring(0,1))
 </code></pre>
+    </section>
 
-        </section>
+    <section>
+<pre><code class="scala" data-trim>
+tuple.getObject("first_character")
+</code></pre>
+<pre><code class="scala" data-trim>
+    .groupBy('first_character) {
+      (g: GroupBuilder) =>
+        g.size('size)
+    }
+</code></pre>
+    </section>
 
+    <section>
+<pre><code class="scala" data-trim>
+tuple.setInt("size", ...)
+</code></pre>
+<pre><code class="scala" data-trim>
+    .groupBy('first_character) {
+      (g: GroupBuilder) =>
+        g.size('size)
+    }
+</code></pre>
+<pre><code class="scala" data-trim>
+Map(o -> List(one), t -> List(two, three))
+</code></pre>
+    </section>
+
+    <section>
+<pre><code class="diff" data-trim>
+fields: ['first_character', ‘size’] tuple: ['o', ‘1’]
+fields: ['first_character', ‘size’] tuple: ['t', ‘2’]
+</code></pre>
+<pre><code class="scala" data-trim>
+    .write(Tsv("data/output/characters.tsv"))
+</code></pre>
+<pre><code class="diff" data-trim>
+o	1
+t	2
+</code></pre>
+    </section>
 
 
     </div>
