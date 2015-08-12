@@ -492,7 +492,7 @@ t	2
 <pre><code class="scala" data-trim>
   TextLine("data/words.txt")
     .map('line -> 'first_character) {
- </code></pre>
+</code></pre>
     </section>
 
     <section>
@@ -502,6 +502,101 @@ t	2
         </div>
     </section>
 
+    <section>
+<pre><code class="scala" data-trim>
+class Job(val args: Args) 
+  extends FieldConversions 
+  with java.io.Serializable {
+
+  implicit def pipeToRichPipe(pipe: Pipe): RichPipe = 
+    new RichPipe(pipe)
+
+  implicit def sourceToRichPipe(src: Source): RichPipe =
+    new RichPipe(src.read)
+</code></pre>
+    </section>
+
+    <section>
+<pre><code class="scala" data-trim>
+def map[A, T](fs: (Fields, Fields))
+             (fn: A => T)
+             (implicit conv: TupleConverter[A], 
+                setter: TupleSetter[T]): Pipe
+</code></pre>
+    </section>
+
+    <section>
+<pre><code class="scala" data-trim>
+  implicit def symbolToFields(x: Symbol) = {
+    if (x == '*) {
+      Fields.ALL
+    } else {
+      new Fields(x.name)
+    }
+  }
+</code></pre>
+<pre><code class="scala" data-trim>
+def map[A, T](fs: (Fields, Fields))
+             (fn: A => T)
+             (implicit conv: TupleConverter[A], 
+                setter: TupleSetter[T]): Pipe
+</code></pre>
+    </section>
+
+    <section>
+        <pre><code class="scala" data-trim>
+        def map[A, T](fs: (Fields, Fields))
+                     (fn: A => T)
+                     (implicit conv: TupleConverter[A], 
+                        setter: TupleSetter[T]): Pipe
+        </code></pre>
+    </section>
+
+    <section>
+        <pre><code class="scala" data-trim>
+            .map('line -> 'first_character) {
+              (line:String) =>
+                line.substring(0,1)
+            }
+        </code></pre>
+        <pre><code class="scala" data-trim>
+        def map[A, T](fs: (Fields, Fields))
+                     (fn: A => T)
+                     (implicit conv: TupleConverter[A], 
+                        setter: TupleSetter[T]): Pipe
+        </code></pre>
+    </section>
+
+    <section>
+<pre><code class="scala" data-trim>
+implicit def tuple1Converter[A](implicit gA: TupleGetter[A]): TupleConverter[Tuple1[A]]
+</code></pre>
+<pre><code class="scala" data-trim>
+implicit object StringGetter extends TupleGetter[String] {
+  override def get(tup: CTuple, i: Int) = tup.getString(i)
+}
+</code></pre>
+<pre><code class="scala" data-trim>
+    .map('line -> 'first_character) {
+      (line:String) =>
+        line.substring(0,1)
+    }
+</code></pre>
+<pre><code class="scala" data-trim>
+implicit def singleSetter[A]: TupleSetter[A] = new TupleSetter[A] {
+  override def apply(arg: A) = {
+    val tup = CTuple.size(1)
+    tup.set(0, arg)
+    tup
+  }
+</code></pre>
+    </section>
+
+
+
+
+    <section>
+    </section>
 
     <section>
         <h1>Typed Pipe</h1>
