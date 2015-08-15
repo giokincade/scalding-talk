@@ -429,18 +429,23 @@ fields: ['line'] tuple: ['three']
         </section>
 
     <section>
-<pre><code class="scala" data-trim>
+    <div class="fragment" data-trim data-fragment-index="1">
+<pre><code class="scala" data-trim> 
 tuple.getString("line")
 </code></pre>
+    </div>
 <pre><code class="scala light" data-trim>
-    .map('line -> 'first_character) {
-      (line:String) =>
-        line.substring(0,1)
-    }
+.map('line -> 'first_character) {
+  (line:String) =>
+    line.substring(0,1)
+}
 </code></pre>
+
+    <div class="fragment" data-trim data-fragment-index="1">
 <pre><code class="scala" data-trim>
 tuple.setString("first_character”, line.substring(0,1))
 </code></pre>
+    </div>
     </section>
 
     <section>
