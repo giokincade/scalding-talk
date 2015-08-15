@@ -449,30 +449,24 @@ tuple.setString("first_character”, line.substring(0,1))
     </section>
 
     <section>
+    <div class="fragment" data-trim data-fragment-index="1">
 <pre><code class="scala" data-trim>
 tuple.getObject("first_character")
 </code></pre>
-<pre><code class="scala" data-trim>
+    </div>
+
+<pre><code class="scala light" data-trim>
     .groupBy('first_character) {
       (g: GroupBuilder) =>
         g.size('size)
     }
 </code></pre>
-    </section>
 
-    <section>
+    <div class="fragment" data-trim data-fragment-index="1">
 <pre><code class="scala" data-trim>
 tuple.setInt("size", ...)
 </code></pre>
-<pre><code class="scala" data-trim>
-    .groupBy('first_character) {
-      (g: GroupBuilder) =>
-        g.size('size)
-    }
-</code></pre>
-<pre><code class="scala" data-trim>
-Map(o -> List(one), t -> List(two, three))
-</code></pre>
+    </div>
     </section>
 
     <section>
@@ -665,32 +659,34 @@ TypedPipe.from(
 				]
 			});
 
+            var toggleFragmentShownClass = function(event) {
+                console.log(event);
+                if (event
+                     && event.fragment
+                     //&& $(event.fragment).data("fragment-index") == "0") {
+                     && Number.parseInt($(event.fragment).data("fragment-index")) < 1) {
+
+                    $('section.present').toggleClass("fragment-shown");
+                 }
+            };
+
             Reveal.addEventListener("fragmentshown", function(event) {
                 if(event
                     && event.fragment
                     && event.fragment.id === "process-second") {
                     $("#process-legend").hide();
                 }
-
-                if (event
-                     && event.fragment
-                     && $(event.fragment).data("fragment-index") == "0") {
-                    $('section.present').toggleClass("fragment-shown");
-                }
+                toggleFragmentShownClass(event);
             });
 
             Reveal.addEventListener("fragmenthidden", function(event) {
+                console.log("what");
                 if(event
                     && event.fragment
                     && event.fragment.id === "process-second") {
                     $("#process-legend").show();
                 }
-
-                if (event
-                     && event.fragment
-                     && $(event.fragment).data("fragment-index") == "0") {
-                    $('section.present').toggleClass("fragment-shown");
-                }
+                toggleFragmentShownClass(event);
             });
 
 
