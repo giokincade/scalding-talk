@@ -17,3 +17,6 @@
 
 .reveal ul.plain {
   list-style-type: none; }
+
+.reveal pre code.light {
+  background: #6D6D6D; }

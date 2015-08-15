@@ -1,5 +1,6 @@
 /** Colors **/
 $orange: #F56400;
+$light-code: #6D6D6D;
 
 .slides {
     section {
@@ -27,4 +28,8 @@ $orange: #F56400;
 
 .reveal ul.plain {
   list-style-type: none;
+}
+
+.reveal pre code.light {
+  background: $light-code;
 }
