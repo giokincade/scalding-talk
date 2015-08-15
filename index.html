@@ -528,15 +528,7 @@ class Job(val args: Args)
     </section>
 
     <section>
-<pre><code class="scala" data-trim>
-def map[A, T](fs: (Fields, Fields))
-             (fn: A => T)
-             (implicit conv: TupleConverter[A], 
-                setter: TupleSetter[T]): Pipe
-</code></pre>
-    </section>
-
-    <section>
+    <div class="fragment" data-trim data-fragment-index="1">
 <pre><code class="scala" data-trim>
   implicit def symbolToFields(x: Symbol) = {
     if (x == '*) {
@@ -546,7 +538,8 @@ def map[A, T](fs: (Fields, Fields))
     }
   }
 </code></pre>
-<pre><code class="scala" data-trim>
+    </div>
+<pre><code class="scala light" data-trim>
 def map[A, T](fs: (Fields, Fields))
              (fn: A => T)
              (implicit conv: TupleConverter[A], 
@@ -555,30 +548,24 @@ def map[A, T](fs: (Fields, Fields))
     </section>
 
     <section>
-        <pre><code class="scala" data-trim>
-        def map[A, T](fs: (Fields, Fields))
-                     (fn: A => T)
-                     (implicit conv: TupleConverter[A], 
-                        setter: TupleSetter[T]): Pipe
-        </code></pre>
+        <div class="fragment" data-trim data-fragment-index="1">
+<pre><code class="scala" data-trim>
+.map('line -> 'first_character) {
+  (line:String) =>
+    line.substring(0,1)
+}
+</code></pre>
+        </div>
+<pre><code class="scala light" data-trim>
+def map[A, T](fs: (Fields, Fields))
+             (fn: A => T)
+             (implicit conv: TupleConverter[A], 
+                setter: TupleSetter[T]): Pipe
+</code></pre>
     </section>
 
     <section>
-        <pre><code class="scala" data-trim>
-            .map('line -> 'first_character) {
-              (line:String) =>
-                line.substring(0,1)
-            }
-        </code></pre>
-        <pre><code class="scala" data-trim>
-        def map[A, T](fs: (Fields, Fields))
-                     (fn: A => T)
-                     (implicit conv: TupleConverter[A], 
-                        setter: TupleSetter[T]): Pipe
-        </code></pre>
-    </section>
-
-    <section>
+        <div class="fragment" data-trim data-fragment-index="1">
 <pre><code class="scala" data-trim>
 implicit def tuple1Converter[A](implicit gA: TupleGetter[A]): TupleConverter[Tuple1[A]]
 </code></pre>
@@ -587,12 +574,14 @@ implicit object StringGetter extends TupleGetter[String] {
   override def get(tup: CTuple, i: Int) = tup.getString(i)
 }
 </code></pre>
-<pre><code class="scala" data-trim>
+</div>
+<pre><code class="scala light" data-trim>
 .map('line -> 'first_character) {
   (line:String) =>
     line.substring(0,1)
 }
 </code></pre>
+        <div class="fragment" data-trim data-fragment-index="1">
 <pre><code class="scala" data-trim>
 implicit def singleSetter[A]: TupleSetter[A] = new TupleSetter[A] {
   override def apply(arg: A) = {
@@ -601,6 +590,7 @@ implicit def singleSetter[A]: TupleSetter[A] = new TupleSetter[A] {
     tup
   }
 </code></pre>
+        </div>
     </section>
 
     <section>
