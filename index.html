@@ -577,10 +577,10 @@ implicit object StringGetter extends TupleGetter[String] {
 }
 </code></pre>
 <pre><code class="scala" data-trim>
-    .map('line -> 'first_character) {
-      (line:String) =>
-        line.substring(0,1)
-    }
+.map('line -> 'first_character) {
+  (line:String) =>
+    line.substring(0,1)
+}
 </code></pre>
 <pre><code class="scala" data-trim>
 implicit def singleSetter[A]: TupleSetter[A] = new TupleSetter[A] {
@@ -592,15 +592,45 @@ implicit def singleSetter[A]: TupleSetter[A] = new TupleSetter[A] {
 </code></pre>
     </section>
 
-
-
-
-    <section>
-    </section>
-
     <section>
         <h1>Typed Pipe</h1>
     </section>
+    <section>
+<pre><code class="scala" data-trim>
+TypedPipe.from(
+    TextLine("data/words.txt")
+  )
+  .map(line => line.substring(0,1)) 
+  .groupBy(character => character)
+  .size
+  .write(
+    TypedTsv[(String, Long)]("data/output/typed-characters.tsv")
+  )
+</code></pre>
+    </section>
+
+    <section>
+        <h2>Resources</h2>
+        <ul class="plain">
+            <li>github.com/giokincade/scalding-talk-examples</li>
+            <li>github.com/twitter/scalding</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Me</h2>
+        <ul class="plain">
+            <li>gio@etsy.com</li>
+            <li>@giokincade</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Fin</h2>
+    </section>
+
+
+
 
     </div>
 
