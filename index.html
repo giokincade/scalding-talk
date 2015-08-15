@@ -671,6 +671,12 @@ TypedPipe.from(
                     && event.fragment.id === "process-second") {
                     $("#process-legend").hide();
                 }
+
+                if (event
+                     && event.fragment
+                     && $(event.fragment).data("fragment-index") == "0") {
+                    $('section.present').toggleClass("fragment-shown");
+                }
             });
 
             Reveal.addEventListener("fragmenthidden", function(event) {
@@ -678,6 +684,12 @@ TypedPipe.from(
                     && event.fragment
                     && event.fragment.id === "process-second") {
                     $("#process-legend").show();
+                }
+
+                if (event
+                     && event.fragment
+                     && $(event.fragment).data("fragment-index") == "0") {
+                    $('section.present').toggleClass("fragment-shown");
                 }
             });
 
