@@ -610,12 +610,20 @@ implicit object StringGetter extends TupleGetter[String] {
 }
 </code></pre>
 </div>
+
 <pre><code class="scala light" data-trim>
 .map('line -> 'first_character) {
   (line:String) =>
     line.substring(0,1)
 }
 </code></pre>
+<pre><code class="scala light" data-trim>
+def map[A, T](fs: (Fields, Fields))
+             (fn: A => T)
+             (implicit conv: TupleConverter[A], 
+                setter: TupleSetter[T]): Pipe
+</code></pre>
+
         <div class="fragment" data-trim data-fragment-index="1">
 <pre><code class="scala" data-trim>
 implicit def singleSetter[A]: TupleSetter[A] = new TupleSetter[A] {
