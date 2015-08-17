@@ -261,30 +261,40 @@ void reduce(K2 key, Iterator&lt;V2&gt; values,
          <h1>Cascading</h1>
       </section>
 
-      <section>
+        <section>
 <pre><code class="java" data-trim>
 cascading.tuple.Tuple
 </code></pre>
-      </section>
+        </section>
 
-       <section>
+        <section>
+            <div>
+<pre><code class="scala" data-trim>
+val tuple = new Tuple(
+    1.asInstanceOf[Object], 
+    "gigi".asInstanceOf[Object], 
+    "miami".asInstanceOf[Object]
+)
+</code></pre>
+            </div>
+            <div class="fragment" data-fragment-index="0">
 <pre><code class="scala" data-trim>
 val fields = new Fields(
   "user_id", 
   "user_name", 
   "location"
 )
-
+</code></pre>
+            </div>
+            <div class="fragment" data-fragment-index="1">
+<pre><code class="scala" data-trim>
 val one = new TupleEntry(
   fields,
-  new Tuple(
-    1.asInstanceOf[Object], 
-    "gigi".asInstanceOf[Object], 
-    "miami".asInstanceOf[Object]
-  )
+  tuple
 )
 </code></pre>
-      </section>
+            </div>
+        </section>
     
       <section>
 <pre><code class="scala" data-trim>
@@ -469,10 +479,10 @@ tuple.getObject("first_character")
     </div>
 
 <pre><code class="scala light" data-trim>
-    .groupBy('first_character) {
-      (g: GroupBuilder) =>
-        g.size('size)
-    }
+.groupBy('first_character) {
+  (g: GroupBuilder) =>
+    g.size('size)
+}
 </code></pre>
 
     <div class="fragment" data-trim data-fragment-index="1">
@@ -539,7 +549,27 @@ class Job(val args: Args)
     </section>
 
     <section>
-    <div class="fragment" data-trim data-fragment-index="1">
+<pre><code class="scala" data-trim>
+def map[A, T](fs: (Fields, Fields))
+             (fn: A => T)
+             (implicit conv: TupleConverter[A], 
+                setter: TupleSetter[T]): Pipe
+</code></pre>
+    </section>
+
+    <section>
+        <div>
+<pre><code class="scala light" data-trim>
+.map('line -> 'first_character) {
+</code></pre>
+        </div>
+        <div>
+<pre><code class="scala light" data-trim>
+def map[A, T](fs: (Fields, Fields))
+</code></pre>
+        </div>
+
+        <div class="fragment" data-fragment-index="0">
 <pre><code class="scala" data-trim>
   implicit def symbolToFields(x: Symbol) = {
     if (x == '*) {
@@ -549,13 +579,7 @@ class Job(val args: Args)
     }
   }
 </code></pre>
-    </div>
-<pre><code class="scala light" data-trim>
-def map[A, T](fs: (Fields, Fields))
-             (fn: A => T)
-             (implicit conv: TupleConverter[A], 
-                setter: TupleSetter[T]): Pipe
-</code></pre>
+        </div>
     </section>
 
     <section>
