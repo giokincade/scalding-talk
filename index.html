@@ -143,19 +143,27 @@ res2: java.lang.String = blah+and+blah!
         </section>
 
         <section>
-<pre><code data-trim>
+            <div>
+<pre><code class="scala" data-trim>
 def emailSignature(name:String)(implicit organization:String) = 
   "Sincerely Yours,\n" + name + "\n" + organization
-
+</code></pre>
+            </div>
+            <div class="fragment" data-fragment-index="0">
+<pre><code class="scala" data-trim>
 scala> implicit val organization = "Etsy, Inc."
 organization: java.lang.String = Etsy, Inc.
-
+</code></pre>
+            </div>
+            <div class="fragment" data-fragment-index="1">
+<pre><code class="scala" data-trim>
 scala> emailSignature("Giovanni Fernandez-Kincade")
 res3: java.lang.String =
 Sincerely Yours,
 Giovanni Fernandez-Kincade
 Etsy, Inc.
 </code></pre>
+            </div>
         </section>
 
         <section>
