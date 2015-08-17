@@ -635,6 +635,14 @@ implicit def singleSetter[A]: TupleSetter[A] = new TupleSetter[A] {
 </code></pre>
         </div>
     </section>
+    <section>
+<pre><code class="scala light" data-trim>
+def map[A, T](fs: (Fields, Fields))
+             (fn: A => T)
+             (implicit conv: TupleConverter[A], 
+                setter: TupleSetter[T]): Pipe
+</code></pre>
+    </section>
 
     <section>
         <h1>Typed Pipe</h1>
