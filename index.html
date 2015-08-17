@@ -167,7 +167,8 @@ Etsy, Inc.
         </section>
 
         <section>
-           <h1>Word Count</h1>
+           <h1 class="strike">Word Count</h1>
+           <h1 class="fragment" data-fragment-index="0">First Character Count</h1>
         </section>
 
         <section>
@@ -213,14 +214,14 @@ List(Map(o -> 1), Map(t -> 1), Map(t -> 1))
 </code></pre>
 
 <pre><code class="scala" data-trim>
-  .reduce { 
-    (a, b) =>
-      a ++ b.map { 
-        mapTuple => 
-          val (key, count) = mapTuple
-          (key, a.getOrElse(key, 0) + count)
-      }
-  }
+.reduce { 
+  (a, b) =>
+    a ++ b.map { 
+      mapTuple => 
+        val (key, count) = mapTuple
+        (key, a.getOrElse(key, 0) + count)
+    }
+}
 </code></pre>
 
 <pre><code class="scala" data-trim>
@@ -244,15 +245,17 @@ Map(o -> 1, t -> 2)
           <img src="images/hadoop/reducer.png">
         </section>
 
-<section>
-<h2>Sort Of</h2>
+        <section>
+            <h2>Sort Of</h2>
+            <div class="fragment" data-fragment-index="0">
 <pre><code class="java" data-trim>
 void map(K1 key, V1 value, OutputCollector&lt;K2,V2&gt; output)
 
 void reduce(K2 key, Iterator&lt;V2&gt; values, 
               OutputCollector&lt;K3,V3&gt; output)
 </code></pre>
-</section>
+            </div>
+        </section>
 
       <section>
          <h1>Cascading</h1>

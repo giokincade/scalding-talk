@@ -20,3 +20,6 @@
 
 .reveal section.fragment-shown pre code.light {
   background: #5E5E5E; }
+
+.reveal section.fragment-shown .strike {
+  text-decoration: line-through; }

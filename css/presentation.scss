@@ -33,3 +33,7 @@ $light-code: #5E5E5E;
 .reveal section.fragment-shown pre code.light {
   background: $light-code;
 }
+
+.reveal section.fragment-shown .strike {
+  text-decoration: line-through;
+}
