@@ -583,7 +583,7 @@ def map[A, T](fs: (Fields, Fields))
     </section>
 
     <section>
-        <div class="fragment" data-trim data-fragment-index="1">
+        <div>
 <pre><code class="scala" data-trim>
 .map('line -> 'first_character) {
   (line:String) =>
@@ -591,12 +591,12 @@ def map[A, T](fs: (Fields, Fields))
 }
 </code></pre>
         </div>
+        <div>
 <pre><code class="scala light" data-trim>
 def map[A, T](fs: (Fields, Fields))
              (fn: A => T)
-             (implicit conv: TupleConverter[A], 
-                setter: TupleSetter[T]): Pipe
 </code></pre>
+        </div>
     </section>
 
     <section>
