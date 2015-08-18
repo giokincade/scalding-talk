@@ -4,7 +4,7 @@
 	<head>
 		<meta charset="utf-8">
 
-		<title>Cheap Products</title>
+		<title>Tuples All The Way Down</title>
 
 		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
 		<meta name="author" content="Hakim El Hattab">
@@ -650,14 +650,24 @@ def map[A, T](fs: (Fields, Fields))
 
     <section>
     <h2>What Happens When You Run it?</h2>
-<pre><code class="scala light" data-trim>
-> runMain com.giokincade.scalding.Runner
-    com.giokincade.scalding.ExampleJob --local
+<pre><code class="scala" data-trim>
+> runMain com.twitter.scalding.Tool
+    com.giokincade.scalding.ExampleJob --hdfs
 </code></pre>
         <p class="fragment">Compile Time</p>
         <p class="fragment">Composition Time</p>
         <p class="fragment">Job Run Time</p>
     </section>
+
+    <section>
+        <img src="images/fields-api-cascading.png">
+    </section>
+
+    <section>
+        <img src="images/fields-api-mr-steps.png">
+    </section>
+
+
 
     <section>
         <h1>Typed Pipe</h1>
