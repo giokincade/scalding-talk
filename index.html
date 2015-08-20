@@ -234,7 +234,10 @@ Map(o -> 1, t -> 2)
         </section>
 
         <section>
-          <img src="images/hadoop/dfs.png">
+<pre><code class="" data-trim>
+~> echo "one\ntwo\nthree" > ~/foo.txt
+~> hadoop fs -put ~/foo.txt
+</pre></code>
         </section>
 
         <section>
@@ -635,14 +638,6 @@ implicit def singleSetter[A]: TupleSetter[A] = new TupleSetter[A] {
 </code></pre>
         </div>
     </section>
-    <section>
-<pre><code class="scala light" data-trim>
-def map[A, T](fs: (Fields, Fields))
-             (fn: A => T)
-             (implicit conv: TupleConverter[A], 
-                setter: TupleSetter[T]): Pipe
-</code></pre>
-    </section>
 
     <section>
         <h1>What Happens When You Run it?</h1>
@@ -666,8 +661,6 @@ def map[A, T](fs: (Fields, Fields))
     <section>
         <img src="images/fields-api-mr-steps.png">
     </section>
-
-
 
     <section>
         <h1>Typed Pipe</h1>
