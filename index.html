@@ -455,10 +455,12 @@ fields: ['line'] tuple: ['three']
         </section>
 
     <section>
-    <div class="fragment" data-trim data-fragment-index="1">
+    <div class="fragment fade-in" data-trim data-fragment-index="1">
+        <div class="fragment fade-out" data-trim data-fragment-index="2">
 <pre><code class="scala" data-trim> 
 tuple.getString("line")
 </code></pre>
+         </div>
     </div>
 <pre><code class="scala light" data-trim>
 .map('line -> 'first_character) {
@@ -467,9 +469,18 @@ tuple.getString("line")
 }
 </code></pre>
 
-    <div class="fragment" data-trim data-fragment-index="1">
+    <div class="fragment fade-in" data-trim data-fragment-index="1">
+        <div class="fragment fade-out" data-trim data-fragment-index="2">
 <pre><code class="scala" data-trim>
 tuple.setString("first_character”, line.substring(0,1))
+</code></pre>
+        </div>
+    </div>
+    <div class="fragment" data-trim data-fragment-index="2">
+<pre><code class="nohighlight" data-trim>
+fields: ['line', 'first_character'] tuple: ['one', 'o']
+fields: ['line', 'first_character'] tuple: ['two', 't']
+fields: ['line', 'first_character'] tuple: ['three', 't']
 </code></pre>
     </div>
     </section>
