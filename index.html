@@ -664,17 +664,22 @@ implicit def singleSetter[A]: TupleSetter[A] = new TupleSetter[A] {
 
     <section>
         <h1>What Happens When You Run it?</h1>
+<pre><code class="scala" data-trim>
+> runMain com.twitter.scalding.Tool
+    com.giokincade.scalding.ExampleJob --local
+</code></pre>
+<pre><code class="scala" data-trim>
+hadoop jar foo.jar com.giokincade.scalding.ExampleJob --hdfs
+</code></pre>
+
     </section>
 
     <section>
-    <h2>What Happens When You Run it?</h2>
-<pre><code class="scala" data-trim>
-> runMain com.twitter.scalding.Tool
-    com.giokincade.scalding.ExampleJob --hdfs
-</code></pre>
-        <p class="fragment">Compile Time</p>
-        <p class="fragment">Composition Time</p>
-        <p class="fragment">Job Run Time</p>
+        <h2>Compile Time</h2>
+    </section>
+
+    <section>
+        <h2>Composition Time</h2>
     </section>
 
     <section>
@@ -683,6 +688,10 @@ implicit def singleSetter[A]: TupleSetter[A] = new TupleSetter[A] {
 
     <section>
         <img src="images/fields-api-mr-steps.png">
+    </section>
+
+    <section>
+        <h2>Job Run Time</h2>
     </section>
 
     <section>
