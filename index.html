@@ -486,10 +486,12 @@ fields: ['line', 'first_character'] tuple: ['three', 't']
     </section>
 
     <section>
-    <div class="fragment" data-trim data-fragment-index="1">
+    <div class="fragment fade-in" data-trim data-fragment-index="1">
+        <div class="fragment fade-out" data-trim data-fragment-index="2">
 <pre><code class="scala" data-trim>
 tuple.getObject("first_character")
 </code></pre>
+         </div>
     </div>
 
 <pre><code class="scala light" data-trim>
@@ -499,11 +501,21 @@ tuple.getObject("first_character")
 }
 </code></pre>
 
-    <div class="fragment" data-trim data-fragment-index="1">
+    <div class="fragment fade-in" data-trim data-fragment-index="1">
+        <div class="fragment fade-out" data-trim data-fragment-index="2">
 <pre><code class="scala" data-trim>
 tuple.setInt("size", ...)
 </code></pre>
+        </div>
     </div>
+
+    <div class="fragment" data-trim data-fragment-index="2">
+<pre><code class="nohighlight" data-trim>
+fields: ['first_character', 'size'] tuple: ['o', 1]
+fields: ['first_character', 'size'] tuple: ['t', 2]
+</code></pre>
+    </div>
+
     </section>
 
     <section>
